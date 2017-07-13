@@ -20,7 +20,6 @@ public class BaseDao {
 	 * @return
 	 */
 	public int insert(String statement, Object key) {
-		SqlSession session = DaoUtils.getSession().openSession();
 		try {
 			int result = session.insert(statement, key);
 			// Insert的时候,必须session.commit();
@@ -39,7 +38,6 @@ public class BaseDao {
 	 * @return
 	 */
 	public int delete(String statement, Object key) {
-		SqlSession session = DaoUtils.getSession().openSession();
 		try {
 			int result = session.delete(statement, key);
 			// Delete的时候,必须session.commit();
@@ -58,7 +56,6 @@ public class BaseDao {
 	 * @return
 	 */
 	public int update(String statement, Object key) {
-		SqlSession session = DaoUtils.getSession().openSession();
 		try {
 			int result = session.delete(statement, key);
 			// Update的时候,必须session.commit();
@@ -77,7 +74,6 @@ public class BaseDao {
 	 * @return
 	 */
 	public Object query(String statement, Object key) {
-		SqlSession session = DaoUtils.getSession().openSession();
 		try {
 			Object result = session.selectOne(statement, key);
 			return (Object) result;
